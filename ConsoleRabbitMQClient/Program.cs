@@ -49,7 +49,7 @@ public class RpcClient
         var messageBytes = Encoding.UTF8.GetBytes(message);
         channel.BasicPublish(
             exchange: "Test",
-            routingKey: "1", //клиент отправляет только на route = "1"
+            routingKey: "1", //клиент отправляет только на route = "1" 
             basicProperties: props,
             body: messageBytes);
 
