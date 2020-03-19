@@ -15,7 +15,7 @@ class RPCServer
         using var channel = connection.CreateModel();
         channel.QueueDeclare(queue: "rpc_queue", durable: true, exclusive: false, autoDelete: false, arguments: null);
 
-        channel.ExchangeDeclare("Test", ExchangeType.Direct);
+        channel.ExchangeDeclare("Test", ExchangeType.Direct); // здесь привязываю к очереди
         channel.QueueBind("rpc_queue", "Test", route);
 
         channel.BasicQos(0, 1, false);
